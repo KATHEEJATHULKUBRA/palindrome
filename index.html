@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palindrome Checker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: whitesmoke;
+           
+        }
+        .container {
+            text-align: center;
+           color: white;
+
+            padding: 20px;
+            border-radius: 20px;
+           background: linear-gradient(rgb(255, 121, 143),rgb(197, 23, 55));
+        }
+        input {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 4px;
+            background-color: #f3aeae;
+            color: black;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: white;
+            color: black;      
+        }
+        #display {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Palindrome Checker</h1>
+        <input type="text" id="inputString" placeholder="Enter a string">
+        <button onclick="checkPalindrome()">Check</button>
+        <div id="display"></div>
+    </div>
+
+    <script>
+        function checkPalindrome() {
+            const input = document.getElementById('inputString').value;
+            const cleanedString = input.toLowerCase().replace(/[^a-z0-9]/gi, '');
+            const reversedString = cleanedString.split('').reverse().join('');
+            if (cleanedString === reversedString) {
+                document.getElementById('display').innerHTML = `"${input}" is a palindrome.`;
+            } else {
+                document.getElementById('display').innerHTML = `"${input}" is not a palindrome.`;
+            }
+        }
+    </script>
+</body>
+</html>
